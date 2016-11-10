@@ -1,14 +1,14 @@
 package com.teste1.edu.tasabendo;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class MapaFragment extends Fragment implements OnMapReadyCallback {
+public class MapaFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveListener {
 
 
     private GoogleMap map;// obj que controla o Google Maps
@@ -43,8 +43,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         // o metodo onMapReady(map)
         this.map = googleMap;
-        //ativa o botao para mostrar minha localizacao
-
         //cria o objeto LatLng com a coordenada do exemplo
         LatLng location = new LatLng(-23.478951, -46.746379); //coordenada de exemplo
         //Posiciona o mapa na coordenada indicada (zoom = 13)
@@ -54,7 +52,27 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback {
         this.map.addMarker(new MarkerOptions().title("Lugar Exemplo").snippet("Lugar Familiar").position(location));
         //tipo do mapa (normal, satelite, terreno ou hibrido)
         this.map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        // a propria classe implenta o Listener
+        this.map.setOnCameraMoveListener(this);
+        this.map.setOnCameraIdleListener(this);
+
+        Toast toast = Toast.makeText(getContexto(), "Mapa mudou "+ this.map.getCameraPosition().target.latitude+ " "+this.map.getCameraPosition().target.longitude ,Toast.LENGTH_LONG);
+        toast.show();
     }
 
+    public Context getContexto(){
+        return this.getContext();
+    }
 
+    @Override
+    public void onCameraMove() {
+        Toast toast = Toast.makeText(getContexto(), "Camera Move " + this.map.getCameraPosition().target.latitude + " " + this.map.getCameraPosition().target.longitude, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    @Override
+    public void onCameraIdle() {
+        Log.d("CameraIdle","CameraIdle "+ this.map.getCameraPosition().target.latitude+ " "+this.map.getCameraPosition().target.longitude );
+    }
 }

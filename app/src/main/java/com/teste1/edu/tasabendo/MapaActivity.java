@@ -8,7 +8,7 @@ public class MapaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mapa2);
+        setContentView(R.layout.activity_mapa);
 
         MapaFragment mapaFragment = new MapaFragment();
         mapaFragment.setArguments(getIntent().getExtras());
