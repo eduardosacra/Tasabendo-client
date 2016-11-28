@@ -24,4 +24,32 @@
         android:layout_marginTop="25dp"
         android:id="@+id/btAbrirMapa"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Testa Request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btAbrirMapa"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp"
+        android:id="@+id/btPlay" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btPlay"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/txtResposta" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtResposta"
+        android:layout_alignStart="@+id/btPlay"
+        android:layout_marginTop="30dp"
+        android:id="@+id/btSalvarEvento" />
 </RelativeLayout>

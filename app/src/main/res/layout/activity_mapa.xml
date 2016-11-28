@@ -1,20 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_mapa2"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.teste1.edu.tasabendo.MapaActivity">
+    tools:context="com.teste1.edu.tasabendo.MainActivity">
 
-    <FrameLayout android:id="@+id/fragLayout"
+    <Button
+        android:text="GET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btAbrirMapa"
+        android:layout_marginTop="0dp"
+        android:id="@+id/btGET" />
+
+    <Button
+        android:text="DELETE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/btPOST"
+        android:id="@+id/btDELETE"
+        android:layout_alignBottom="@+id/btPOST" />
+
+    <Button
+        android:text="POST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/btGET"
+        android:id="@+id/btPOST"
+        android:layout_alignBottom="@+id/btGET" />
+
+    <TextView
+        android:text="Categoria:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCategoria"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/btDELETE" />
+
+    <Spinner
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_mapa">
+        android:id="@+id/spinner"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/btDELETE"
+        android:layout_alignBottom="@+id/btDELETE"
+        android:layout_below="@+id/txtCategoria" />
 
-    </FrameLayout>
-</LinearLayout>
+
+/*
+
+    <fragment
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+        android:layout_below="@+id/btGET" />*/
+
+
+
+
+</RelativeLayout>
+
+

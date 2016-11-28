@@ -5,7 +5,9 @@
     tools:context="com.teste1.edu.tasabendo.MapaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <fragment android:id="@+id/mapFragment"
+    <fragment
+
+        android:id="@+id/mapFragment"
         class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         tools:context=".MapaActivity"
