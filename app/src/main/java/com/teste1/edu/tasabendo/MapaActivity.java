@@ -273,7 +273,7 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
         return true;
     }
 
-    private class HttpRequestElastic extends AsyncTask<List, Void, List> {
+    private class HttpRequestElastic extends AsyncTask<ArrayList, Void, ArrayList> {
         public Double lat, lon;
         HttpRequestElastic(Double lat,Double lon){
             this.lat = lat;
@@ -291,12 +291,12 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         @Override
-        protected List doInBackground(List... params) {
+        protected ArrayList doInBackground(ArrayList... params) {
 
             try {
-                ArrayList <Evento> eventos = HttpHelper.doGet(this.lat,this.lon);
+                //ArrayList <Evento> eventos = HttpHelper.doGet(this.lat,this.lon);
                 //ArrayList <Evento> eventos = HttpHelper.doGet( -23.475401,-46.746479);
-                //ArrayList <Evento> eventos = HttpHelper.getEventos();
+                ArrayList <Evento> eventos = HttpHelper.getEventos();
 
                 return eventos;
             } catch (JSONException e) {
@@ -313,7 +313,7 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         @Override
-        protected void onPostExecute(final List s) {
+        protected void onPostExecute(final ArrayList s) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
